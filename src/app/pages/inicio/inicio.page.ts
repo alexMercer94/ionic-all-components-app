@@ -26,6 +26,16 @@ export class InicioPage implements OnInit {
             icon: 'radio-button-on',
             name: 'Buttons & Router',
             redirectTo: '/buttons'
+        },
+        {
+            icon: 'card',
+            name: 'Cards',
+            redirectTo: '/card'
+        },
+        {
+            icon: 'checkmark-circle-outline',
+            name: 'Checkbox',
+            redirectTo: '/check'
         }
     ];
 

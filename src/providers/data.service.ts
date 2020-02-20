@@ -7,9 +7,13 @@ import { tap } from 'rxjs/operators';
     providedIn: 'root'
 })
 export class DataService {
-    constructor(private http: HttpClient) {}
+    constructor(private http: HttpClient) { }
 
     getUsers(): Observable<any> {
         return this.http.get('https://jsonplaceholder.typicode.com/users').pipe(tap(data => data));
+    }
+
+    getMenuOptions(): Observable<Componente[]> {
+        return this.http.get('/assets/data/menu.json').pipe(tap((data: Componente[]) => data));
     }
 }

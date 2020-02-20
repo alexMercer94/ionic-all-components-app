@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MenuController } from '@ionic/angular';
+import { DataService } from 'src/providers/data.service';
 
 @Component({
     selector: 'app-inicio',
@@ -6,75 +8,17 @@ import { Component, OnInit } from '@angular/core';
     styleUrls: ['./inicio.page.scss']
 })
 export class InicioPage implements OnInit {
-    components: Componente[] = [
-        {
-            icon: 'american-football',
-            name: 'Action-sheet',
-            redirectTo: '/action-sheet'
-        },
-        {
-            icon: 'appstore',
-            name: 'Alert',
-            redirectTo: '/alert'
-        },
-        {
-            icon: 'beaker',
-            name: 'Avatar',
-            redirectTo: '/avatar'
-        },
-        {
-            icon: 'radio-button-on',
-            name: 'Buttons & Router',
-            redirectTo: '/buttons'
-        },
-        {
-            icon: 'card',
-            name: 'Cards',
-            redirectTo: '/card'
-        },
-        {
-            icon: 'checkmark-circle-outline',
-            name: 'Checkbox',
-            redirectTo: '/check'
-        },
-        {
-            icon: 'calendar',
-            name: 'DateTime',
-            redirectTo: '/date-time'
-        },
-        {
-            icon: 'car',
-            name: 'Fabs',
-            redirectTo: '/fab'
-        },
-        {
-            icon: 'grid',
-            name: 'Grid - Rows',
-            redirectTo: '/grid'
-        },
-        {
-            icon: 'infinite',
-            name: 'Infinite Scroll',
-            redirectTo: '/infinite-scroll'
-        },
-        {
-            icon: 'hammer',
-            name: 'Input',
-            redirectTo: '/input'
-        },
-        {
-            icon: 'list',
-            name: 'Listas',
-            redirectTo: '/list'
-        },
-        {
-            icon: 'reorder',
-            name: 'Listas - Reorder',
-            redirectTo: '/list-reorder'
-        }
-    ];
+    components: Componente[] = [];
 
-    constructor() {}
+    constructor(private menuCtrl: MenuController, private dataService: DataService) {}
 
-    ngOnInit() {}
+    ngOnInit() {
+        this.dataService.getMenuOptions().subscribe((data: Componente[]) => {
+            this.components = data;
+        });
+    }
+
+    toggleMenu(): void {
+        this.menuCtrl.toggle();
+    }
 }

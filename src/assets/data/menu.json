@@ -17,7 +17,7 @@
     {
         "icon": "radio-button-on",
         "name": "Botones y router",
-        "redirectTo": "/botones"
+        "redirectTo": "/buttons"
     },
     {
         "icon": "card",
@@ -93,5 +93,20 @@
         "icon": "search",
         "name": "Searchbar",
         "redirectTo": "/searchbar"
+    },
+    {
+        "icon": "copy",
+        "name": "Segment",
+        "redirectTo": "/segment"
+    },
+    {
+        "icon": "albums",
+        "name": "Slides",
+        "redirectTo": "/slides"
+    },
+    {
+        "icon": "cog",
+        "name": "Tabs",
+        "redirectTo": "/tabs/account"
     }
 ]

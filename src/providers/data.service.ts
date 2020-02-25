@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { tap } from 'rxjs/operators';
+import { delay, tap } from 'rxjs/operators';
 
 @Injectable({
     providedIn: 'root'
@@ -19,5 +19,12 @@ export class DataService {
 
     getAlbums(): Observable<any> {
         return this.http.get('https://jsonplaceholder.typicode.com/albums').pipe(tap((data: any) => data));
+    }
+
+    getHeroes(): Observable<any[]> {
+        return this.http
+            .get('/assets/data/superheroes.json')
+            .pipe(tap((data: any[]) => data))
+            .pipe(delay(2000));
     }
 }
